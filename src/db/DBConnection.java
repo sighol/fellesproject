@@ -10,11 +10,13 @@ import java.util.Properties;
 public class DBConnection {
 
 	private String jdbcDriver = "com.mysql.jdbc.Driver";
-	private String dbAddress = "jdbc:mysql://localhost/calendar";
 	
-	private String username = "client";
+	private String username = "calendar";
 	private String password = "ryTmLAyhzYPe4X78";
+	private String databaseName = "calendar";
 
+	private String dbAddress = "jdbc:mysql://localhost/" + databaseName;
+	
 	private Connection conn;
 
 	public DBConnection() throws ClassNotFoundException, SQLException {

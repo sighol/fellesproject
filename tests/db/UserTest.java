@@ -26,9 +26,11 @@ public class UserTest {
 	}
 	
 	@Test
-	public void test_isNewRecord() {
-		User user = new User();
+	public void test_isNewRecord() throws SQLException {
+		User user = getNewUser();
 		assertTrue(user.isNewRecord());
+		user.save();
+		assertFalse(user.isNewRecord());
 	}
 
 	@Test

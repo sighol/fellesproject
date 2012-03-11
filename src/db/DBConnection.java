@@ -7,15 +7,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
+
 public class DBConnection {
 
-	private String jdbcDriver = "com.mysql.jdbc.Driver";
+	private static String jdbcDriver = "com.mysql.jdbc.Driver";
 	
-	private String username = "calendar";
-	private String password = "ryTmLAyhzYPe4X78";
-	private String databaseName = "calendar";
+	private static String username = "calendar";
+	private static String password = "ryTmLAyhzYPe4X78";
+	private static String databaseName = "calendar";
 
-	private String dbAddress = "jdbc:mysql://localhost/" + databaseName;
+	private static String dbAddress = "jdbc:mysql://localhost/" + databaseName;
 	
 	private Connection conn;
 
@@ -52,6 +54,10 @@ public class DBConnection {
 	
 	public void close() throws SQLException {
 		conn.close();
+	}
+	
+	public static JdbcConnectionSource getJdbcConnectionSource() throws SQLException {
+		return new JdbcConnectionSource(dbAddress, username, password);
 	}
 
 }

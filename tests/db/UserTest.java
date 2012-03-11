@@ -18,12 +18,12 @@ public class UserTest {
 		user.email = "sigurhol@stud.ntnu.no";
 		user.username = "sigurhol";
 		user.save();
-		long count = User.model.count();
-		User user2 = User.model().find(User.model.prepare().where().eq("user_id", count).prepare());
-		
+		long count = User.model().count();
+		User user2 = User.model().find(
+				User.model().builder().where().eq("user_id", count).prepare());
+
 		assertNotNull(user2);
-		
+
 		assertFalse(user2.id == 0);
 	}
-
 }

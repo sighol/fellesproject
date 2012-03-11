@@ -4,8 +4,12 @@ import java.sql.SQLException;
 
 public abstract class Record {
 
+	Class subtype;
+
+	public Record(Class c) {
+		subtype = c;
+	}
 	protected boolean isNewRecord;
-	protected Model<?> model;
 
 	public void save() throws SQLException {
 		if (isNewRecord) {
@@ -14,9 +18,22 @@ public abstract class Record {
 			update();
 		}
 	}
+	private static Model<?> model;
 
-	 public abstract void insert() throws SQLException;
-	 public abstract void update() throws SQLException;
+	public static Model<?> model(Class c) throws SQLException {
+		return ModelFactory.getInstance(c);
+	}
 
+	public void insert() throws SQLException {
+		model(subtype).insert(this);
+	}
 
+	public void update() throws SQLException {
+		model(subtype).update(this);
+	}
+
+	public void delete() throws SQLException {
+		model(subtype).delete(this);
+	}
+	
 }

@@ -9,7 +9,11 @@ public abstract class Record {
 	public Record(Class c) {
 		subtype = c;
 	}
-	protected boolean isNewRecord;
+	protected boolean isNewRecord = true;
+	
+	public boolean isNewRecord() {
+		return isNewRecord;
+	}
 
 	public void save() throws SQLException {
 		if (isNewRecord) {
@@ -26,6 +30,7 @@ public abstract class Record {
 
 	public void insert() throws SQLException {
 		model(subtype).insert(this);
+		isNewRecord = false;
 	}
 
 	public void update() throws SQLException {

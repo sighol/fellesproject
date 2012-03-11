@@ -9,7 +9,7 @@ public class User extends Record {
 		super(User.class);
 	}
 	@DatabaseField(columnName = "user_id", generatedId = true)
-	public int id;
+	public Integer id;
 	@DatabaseField(columnName = "username")
 	public String username;
 	@DatabaseField(columnName = "first_name")

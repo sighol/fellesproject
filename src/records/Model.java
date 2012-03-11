@@ -12,13 +12,14 @@ import db.DBConnection;
 
 public class Model<T> {
 
+	private Dao<T, String> dao;
+
 	public Model(Class<T> c) throws SQLException {
 		if (dao == null) {
 			dao = DaoManager.createDao(
-					DBConnection.getJdbcConnectionSource(), c);
+					DBConnection.getJdbcConnectionSource(),	c);
 		}
 	}
-	private Dao<T, String> dao;
 
 	public void save(Record record) throws SQLException {
 		if (record.isNewRecord) {
@@ -34,11 +35,11 @@ public class Model<T> {
 	}
 
 	public void update(Record record) throws SQLException {
-		dao.update((T)record);
+		dao.update((T) record);
 	}
 
 	public void delete(Record record) throws SQLException {
-		dao.delete((T)record);
+		dao.delete((T) record);
 	}
 
 	public QueryBuilder<T, String> builder() throws SQLException {
@@ -48,7 +49,7 @@ public class Model<T> {
 	public List<T> findAll(PreparedQuery<T> query) throws SQLException {
 		List<T> models = dao.query(query);
 		for (T record : models) {
-			((Record)record).isNewRecord = false;
+			((Record) record).isNewRecord = false;
 		}
 		return models;
 	}

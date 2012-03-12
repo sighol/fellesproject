@@ -1,5 +1,6 @@
 .swp
 .settings/
+.classpath
 bin/
 nbproject/
 manifest.mf

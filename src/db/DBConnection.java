@@ -20,8 +20,17 @@ public class DBConnection {
 	private static String dbAddress = "jdbc:mysql://localhost/" + databaseName;
 	
 	private Connection conn;
+	
+	private static DBConnection instance;
+	
+	public static DBConnection getInstance() throws ClassNotFoundException, SQLException {
+		if (instance == null) {
+			instance = new DBConnection();
+		}
+		return instance;
+	}
 
-	public DBConnection() throws ClassNotFoundException, SQLException {
+	private DBConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(jdbcDriver);
 		Properties props = getDatabaseProperties();
 		conn = DriverManager.getConnection(dbAddress, props);

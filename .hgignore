@@ -1,0 +1,8 @@
+.swp
+.settings/
+bin/
+nbproject/
+manifest.mf
+build.xml
+build/
+

@@ -10,7 +10,7 @@ public class DBConnectionTest {
 
 	@Test
 	public void connection() throws ClassNotFoundException, SQLException {
-		DBConnection conn = new DBConnection();		
+		DBConnection conn = DBConnection.getInstance();
 	}
 
 }

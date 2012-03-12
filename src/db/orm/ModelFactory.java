@@ -1,4 +1,4 @@
-package records;
+package db.orm;
 
 import java.sql.SQLException;
 import java.util.HashMap;

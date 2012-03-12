@@ -1,4 +1,4 @@
-package records;
+package db.orm;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -9,6 +9,7 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 
 import db.DBConnection;
+
 
 public class Model<T> {
 

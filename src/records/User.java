@@ -1,6 +1,10 @@
 package records;
 
 import com.j256.ormlite.field.DatabaseField;
+
+import db.orm.Model;
+import db.orm.Record;
+
 import java.sql.SQLException;
 
 public class User extends Record {

@@ -4,6 +4,9 @@ import java.sql.SQLException;
 
 import com.j256.ormlite.field.DatabaseField;
 
+import db.orm.Model;
+import db.orm.Record;
+
 public class Room extends Record{
 
 	public Room() {

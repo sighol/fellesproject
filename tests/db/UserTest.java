@@ -2,10 +2,12 @@ package db;
 
 import java.sql.SQLException;
 
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import records.User;
+import static org.junit.Assert.*;
+
 
 public class UserTest {
 

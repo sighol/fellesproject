@@ -1,9 +1,7 @@
 package records;
 
-import java.sql.Date;
 import java.sql.SQLException;
 
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 
 public class Appointment extends Record{
